@@ -12,15 +12,15 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         String[] arguments;
-        //Twhen user input is given in single string encoded with double quotes.
+        //Twhen user input is given in single string enclosed with double quotes.
         if (args.length == 1) {
             String command = args[0];
             arguments = command.split(" ");
-        }else if (args.length - 1 != CronTimeUnit.values().length) {
-            throw new InvalidCronExpressionException("invalid number of arguments provided");
-        }else {
+        }else if (args.length - 1 == CronTimeUnit.values().length) {
             //when user input is given space separated strings
             arguments = args;
+        }else {
+            throw new InvalidCronExpressionException("invalid number of arguments provided");
         }
 
 

@@ -1,6 +1,6 @@
 package org.delivaroo.model;
 
-import org.delivaroo.mapper.MapperFactory;
+
 import org.delivaroo.strategy.*;
 
 import java.util.Arrays;
