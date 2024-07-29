@@ -24,16 +24,21 @@ public class Main {
         }
 
 
-
+        /**
+         * Getting the time part of the total command to expand it.
+         */
         String time_command = IntStream.range(0, arguments.length - 1)
                 .mapToObj(i -> arguments[i])
                 .collect(Collectors.joining(" "));
 
         try {
+            // Doing basic regex validation which validates the allowed tokens in the expression
             Validator validator = new ExpressionValidator(time_command);
 
+            // This throws the exception if any unknown token is found
             validator.validate();
 
+            // preparing the cron expression from the input
             CronExpression expression = CronExpression.Builder.getInstance()
                     .withMinutes(arguments[CronTimeUnit.MINUTES.getIndex()])
                     .withHours(arguments[CronTimeUnit.HOURS.getIndex()])
@@ -43,6 +48,7 @@ public class Main {
                     .withCommand(arguments[arguments.length - 1])
                     .build();
 
+            // printing the cron expression in the required format
             expression.print();
         }catch (InvalidCronExpressionException exception) {
             System.err.println(exception);
