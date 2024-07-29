@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 public class Main {
     public static void main(String[] args) {
         String[] arguments;
-        //Twhen user input is given in single string enclosed with double quotes.
+        //when user input is given in single string enclosed with double quotes.
         if (args.length == 1) {
             String command = args[0];
             arguments = command.split(" ");
